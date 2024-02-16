@@ -1,23 +1,27 @@
 import { View, Text } from 'react-native'
-import React, {Component} from 'react'
+import React from 'react'
+
+type MessageProps = {
+  message: string;
+}
 
 const Component1 = () => {
   return (
-    <View style={{ flex:1, flexDirection:'column' , backgroundColor:'#000000', alignItems:'center', justifyContent:'center'}}>
+    <View style={{ flex: 1, flexDirection: 'column', backgroundColor: '#000000', alignItems: 'center', justifyContent: 'center' }}>
       {/* First Component */}
-      <Text style={{ textAlign:'center', color:'#FFFFFF', fontSize:20 }}>WelCome to CodeMobiles</Text>
+      <Text style={{ textAlign: 'center', color: '#FFFFFF', fontSize: 20 }}>WelCome to CodeMobiles</Text>
       {/* Second Component */}
-      <SecondComponent/>
+      <ChildComponent1 message="1234" />
     </View>
   )
 }
 
-class SecondComponent extends Component{
-  render(){
-    return(
-      <Text style={{ textAlign:'center', color:'#FFFFFF', fontSize: 20 }}>WelCome to CodeMobiles 2</Text>
-    );
-  }
+const ChildComponent1 = (props:MessageProps ) => {
+  return (
+    <View>
+      <Text style={{ textAlign: 'center', color: '#FFFFFF', fontSize: 20 }}>WelCome to CodeMobiles {props.message}</Text>
+    </View>
+  )
 }
 
 export default Component1
